@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">CatalogueMovieDb</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="upcoming">upcoming</string>
+    <string name="now_playing">now_playing</string>
+    <string name="hello_blank_fragment">hello_blank_fragment</string>
+    <string name="movie_search">movie_search</string>
+    <string name="put_search_keyword_here">put_search_keyword_here</string>
+    <string name="search">search</string>
+    <string name="searching">searching</string>
+    <string name="empty">empty</string>
+    <string name="remarks">remarks</string>
+    <string name="american_ninja">american_ninja</string>
+    <string name="movie_name">movie name</string>
+    <string name="detail">Detail</string>
+    <string name="delete">delete</string>
+    <string name="loading_poster">loading_poster</string>
+</resources>

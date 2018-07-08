@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Katalog Film Db</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Pengaturan</string>
+    <string name="upcoming">Akan Datang</string>
+    <string name="now_playing">Lagi Diputar</string>
+    <string name="hello_blank_fragment">hello_blank_fragment</string>
+    <string name="movie_search">Cari Film</string>
+    <string name="put_search_keyword_here">put_search_keyword_here</string>
+    <string name="search">Cari</string>
+    <string name="searching">Sedang Cari</string>
+    <string name="empty">Kosong</string>
+    <string name="remarks">Catatan</string>
+    <string name="american_ninja">american_ninja</string>
+    <string name="movie_name">Judul Film</string>
+    <string name="detail">Detil</string>
+    <string name="delete">Hapus</string>
+</resources>

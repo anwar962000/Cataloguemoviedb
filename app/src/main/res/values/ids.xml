@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="content_main" type="id">content_main</item>
+    <item name="edit_title" type="id">edit title</item>
+</resources>
