@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class UpcomingFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<MovieItem>> {
     static final String EXTRAS_MOVIE = "EXTRAS_MOVIE";
     Context context;
+//    RecyclerView listView;
     ListView listView;
     MovieAdapter movieAdapter;
 
@@ -47,7 +48,7 @@ public class UpcomingFragment extends Fragment implements LoaderManager.LoaderCa
         bundle.putString(EXTRAS_MOVIE, null);
 
         getLoaderManager().initLoader(0, bundle, this);
-        listView = (ListView) rootView.findViewById(R.id.listView_upcomming);
+        listView= rootView.findViewById(R.id.listView_upcomming);
         listView.setAdapter(movieAdapter);
 
         return rootView;

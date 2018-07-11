@@ -40,7 +40,7 @@ public class FaveFragment extends Fragment implements LoaderManager.LoaderCallba
         super.onCreate(savedInstanceState);
         Log.d(EXTRAS_MOVIE, "onCreate: "+"EXECUTE");
         Bundle bundle = new Bundle();
-        getLoaderManager().initLoader(1, bundle, this);
+        getLoaderManager().initLoader(0, bundle, this);
 
     }
 
@@ -75,7 +75,7 @@ public class FaveFragment extends Fragment implements LoaderManager.LoaderCallba
         if (isVisibleToUser) {
             Log.d(EXTRAS_MOVIE, "setUserVisibleHint: "+"VISIBLE");
 
-            getLoaderManager().restartLoader(1, null, this);
+            getLoaderManager().restartLoader(0, null, this);
         }
     }
 }

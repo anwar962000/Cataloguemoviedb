@@ -19,6 +19,8 @@ import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.loopj.android.http.AsyncHttpClient.log;
+
 
 public class SearchFragment extends Fragment implements LoaderCallbacks<ArrayList<MovieItem>> {
 
@@ -80,8 +82,8 @@ public class SearchFragment extends Fragment implements LoaderCallbacks<ArrayLis
         if (bundle != null) {
             movieList = bundle.getString( EXTRAS_MOVIE );
         }
-//        return null;
-        return new MovieAsyncLoader( getActivity(), movieList, "SearchMovie" );
+        return new MovieAsyncLoader( getActivity(), movieList, "search" );
+//        return new MovieAsyncTaskLoader( this, movieList, "search" );
 
     }
 
@@ -107,6 +109,7 @@ public class SearchFragment extends Fragment implements LoaderCallbacks<ArrayLis
 
             Bundle bundle = new Bundle();
             bundle.putString( EXTRAS_MOVIE, title );
+            log.d("tag","onClick:"+bundle.toString());
             getLoaderManager().restartLoader( 0, bundle, SearchFragment.this );
         }
     };

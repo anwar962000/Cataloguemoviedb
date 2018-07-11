@@ -7,6 +7,7 @@ import android.provider.BaseColumns;
 public class DatabaseContract {
     public static String TABLE_NAME = "fave";
 
+
     public static final class FaveColumns implements BaseColumns {
 
         public static String ID = "id";
@@ -23,10 +24,19 @@ public class DatabaseContract {
 
     public static final String AUTHORITY = "com.istiabudi.cataloguemoviedb";
 
-    public static final Uri CONTENT_URI= new Uri.Builder().scheme("content")
-                .authority(AUTHORITY)
-                .appendPath(TABLE_NAME)
+    public static Uri contentUri() {
+        return new Uri.Builder().scheme( "content" )
+                .authority( AUTHORITY )
+                .appendEncodedPath( TABLE_NAME )
                 .build();
+    }
+    public static Uri contentUriWithId(int tmdbid) {
+        return new Uri.Builder().scheme("content")
+                .authority(AUTHORITY)
+                .appendEncodedPath(TABLE_NAME)
+                .appendEncodedPath(String.valueOf(tmdbid))
+                .build();
+    }
 
     public static String getColumnString(Cursor cursor, String columnName) {
         return cursor.getString(cursor.getColumnIndex(columnName));

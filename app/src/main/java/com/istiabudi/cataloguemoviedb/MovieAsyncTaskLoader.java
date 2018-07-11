@@ -1,9 +1,8 @@
 package com.istiabudi.cataloguemoviedb;
 
-import android.content.AsyncTaskLoader;
+
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import android.support.v4.content.AsyncTaskLoader;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.SyncHttpClient;
@@ -59,48 +58,23 @@ public class MovieAsyncTaskLoader extends AsyncTaskLoader<ArrayList<MovieItem>> 
 
     @Override
     public ArrayList<MovieItem> loadInBackground() {
-        String url = null;
-        Log.d(getClass().getSimpleName(), "loadInBackground: " + getId());
-        switch (getId()) {
-            case 0:
-                url = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + API_KEY + "&language=en-US";
-                break;
-            case 2:
-
-                if (TextUtils.isEmpty(mMovieList)) {
-                    url = "https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en";
-                } else {
-                    url = "https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + mMovieList + "&include_adult=true";
-                }
-                break;
-        }
-        Log.d(getClass().getSimpleName(), "loadInBackground: " + url);
         SyncHttpClient client = new SyncHttpClient();
 
-        final ArrayList<MovieItem> listMovie = new ArrayList<>();
+        final ArrayList<MovieItem> movieItemses = new ArrayList<>();
+        String url = null;
+        if(this.purpose == "search"){
+            url = "https://api.themoviedb.org/3/search/movie?api_key="+ API_KEY + "&language=en-US&query=" + mMovieList;
+        }else if (this.purpose == "upcoming"){
+            url = "https://api.themoviedb.org/3/movie/upcoming?api_key="+ API_KEY + "&language=en-US";
+        }else {
+            url = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ API_KEY +"&language=en-US";
+        }
         client.get(url, new AsyncHttpResponseHandler() {
-
+            @Override
             public void onStart() {
                 super.onStart();
                 setUseSynchronousMode(true);
             }
-//        SyncHttpClient client = new SyncHttpClient();
-
-//        final ArrayList<MovieItem> movieItemses = new ArrayList<>();
-//        String url = null;
-//        if(this.purpose == "search"){
-//            url = "https://api.themoviedb.org/3/search/movie?api_key="+ API_KEY + "&language=en-US&query=" + mMovieList;
-//        }else if (this.purpose == "upcoming"){
-//            url = "https://api.themoviedb.org/3/movie/upcoming?api_key="+ API_KEY + "&language=en-US";
-//        }else {
-//            url = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ API_KEY +"&language=en-US";
-//        }
-//        client.get(url, new AsyncHttpResponseHandler() {
-//            @Override
-//            public void onStart() {
-//                super.onStart();
-//                setUseSynchronousMode(true);
-//            }
 
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody) {
@@ -112,7 +86,7 @@ public class MovieAsyncTaskLoader extends AsyncTaskLoader<ArrayList<MovieItem>> 
                     for (int i = 0 ; i < list.length() ; i++){
                         JSONObject movie = list.getJSONObject(i);
                         MovieItem movieItems = new MovieItem(movie);
-                        listMovie.add(movieItems);
+                        movieItemses.add(movieItems);
                     }
                 }catch (Exception e){
                     e.printStackTrace();
@@ -125,7 +99,7 @@ public class MovieAsyncTaskLoader extends AsyncTaskLoader<ArrayList<MovieItem>> 
             }
         });
 
-        return listMovie;
+        return movieItemses;
     }
 
     protected void onReleaseResources(ArrayList<MovieItem> data) {

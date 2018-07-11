@@ -84,6 +84,7 @@ public class MovieCardAdapter extends RecyclerView.Adapter<MovieCardAdapter.Card
 
     }
 
+
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         TextView textViewTitle;
         TextView textViewDesc;

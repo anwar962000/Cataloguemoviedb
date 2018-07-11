@@ -3,7 +3,10 @@
     package="com.istiabudi.cataloguemoviedb">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <permission android:name="com.istiabudi.cataloguemoviedb.READ_DATABASE" android:protectionLevel="normal" />
+    <permission android:name="com.istiabudi.cataloguemoviedb.WRITE_DATABASE" android:protectionLevel="normal" />
 
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,8 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailActivity" />
-        <activity android:name=".SearchFragment"></activity>
+        <activity android:name=".DetailActivity" >
+        </activity>
+        <provider
+            android:authorities="com.istiabudi.cataloguemoviedb"
+            android:name=".db.FaveProvider"
+            android:exported="true"
+            android:readPermission="com.istiabudi.cataloguemoviedb.READ_DATABASE"
+            android:writePermission="com.istiabudi.cataloguemoviedb.WRITE_DATABASE" />
     </application>
 
 </manifest>

@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                             "%s TEXT NOT NULL," + // releasedate
                             "%s TEXT NOT NULL," + // decription
                             "%s TEXT NOT NULL" + // poster
-                            "%s TEXT NOT NULL" + // thumbnail
+//                            "%s TEXT NOT NULL" + // thumbnail
                             ")",
                     DatabaseContract.TABLE_NAME,
                     DatabaseContract.FaveColumns.ID,
@@ -29,8 +29,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                     DatabaseContract.FaveColumns.OVERVIEW,
                     DatabaseContract.FaveColumns.RELEASEDATE,
                     DatabaseContract.FaveColumns.DESCRIPTION,
-                    DatabaseContract.FaveColumns.POSTER,
-                    DatabaseContract.FaveColumns.THUMBNAIL
+                    DatabaseContract.FaveColumns.POSTER
+//                    DatabaseContract.FaveColumns.THUMBNAIL
             );
 
     DatabaseHelper(Context context) {

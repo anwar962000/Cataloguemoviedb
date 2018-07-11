@@ -1,17 +1,25 @@
 package com.istiabudi.cataloguemoviedb;
 
+import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.istiabudi.cataloguemoviedb.db.DatabaseContract;
 
 import org.json.JSONObject;
 
 
 public class MovieItem implements Parcelable {
     private int id;
-    private String title;
-    private String description;
-    private String dateRelease;
-    private String image;
+    public String title;
+    public int tmdbid;
+    public String originalTitle;
+    public String overview;
+    public String poster;
+    public String releaseDate;
+    public String description;
+    public String dateRelease;
+    public String image;
 
     public MovieItem(JSONObject object){
         try {
@@ -31,6 +39,20 @@ public class MovieItem implements Parcelable {
             e.printStackTrace();
         }
     }
+
+    public MovieItem(Cursor cursor) {
+        this.id = DatabaseContract.getColumnInt(cursor, DatabaseContract.FaveColumns.ID);
+        this.tmdbid = DatabaseContract.getColumnInt(cursor, DatabaseContract.FaveColumns.TMDBID);
+        this.title = DatabaseContract.getColumnString(cursor, DatabaseContract.FaveColumns.TITLE);
+        this.originalTitle = DatabaseContract.getColumnString(cursor, DatabaseContract.FaveColumns.ORIGINALTITLE);
+        this.overview = DatabaseContract.getColumnString(cursor, DatabaseContract.FaveColumns.OVERVIEW);
+        this.releaseDate = DatabaseContract.getColumnString(cursor, DatabaseContract.FaveColumns.RELEASEDATE);
+        this.poster = DatabaseContract.getColumnString(cursor, DatabaseContract.FaveColumns.POSTER);
+    }
+
+    public MovieItem(int getId, String name, String date, String desc, String image) {
+    }
+
     public int getId() {
         return id;
     }
@@ -95,4 +117,5 @@ public class MovieItem implements Parcelable {
             return new MovieItem[size];
         }
     };
+
 }

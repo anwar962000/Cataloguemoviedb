@@ -13,7 +13,6 @@ public class FaveHelper {
     private static String DATABASE_TABLE = TABLE_NAME;
     private Context context;
     private DatabaseHelper databaseHelper;
-
     private SQLiteDatabase database;
 
     public FaveHelper(Context context) {
@@ -23,14 +22,12 @@ public class FaveHelper {
     public void open() throws SQLException {
         this.databaseHelper = new DatabaseHelper(this.context);
         this.database = databaseHelper.getWritableDatabase();
+//        return this;
     }
 
     public void close() {
         this.databaseHelper.close();
     }
-
-
-
 
     public Cursor queryByIdProvider(String id) {
         return this.database.query(DATABASE_TABLE, null,

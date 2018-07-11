@@ -10,7 +10,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import static com.istiabudi.cataloguemoviedb.db.DatabaseContract.CONTENT_URI;
+import static com.istiabudi.cataloguemoviedb.db.DatabaseContract.contentUri;
 
 public class LoaderDatabase extends AsyncTaskLoader<ArrayList<MovieItem>> {
 
@@ -36,8 +36,15 @@ public class LoaderDatabase extends AsyncTaskLoader<ArrayList<MovieItem>> {
     public ArrayList<MovieItem> loadInBackground() {
 
         ArrayList<MovieItem> list = new ArrayList<>();
-        Cursor cursor = getContext().getContentResolver().query(CONTENT_URI, null, null, null, null, null);
-        if (cursor.moveToFirst()) {
+        Cursor cursor = getContext()
+                .getContentResolver()
+                .query(contentUri(),
+                        null,
+                        null,
+                        null,
+                        null,
+                        null);
+        if ( cursor.moveToFirst()) {
             do {
                 MovieItem movie = new MovieItem( (JSONObject) cursor );
                 list.add(movie);

@@ -5,31 +5,33 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import static com.istiabudi.cataloguemoviedb.db.DatabaseContract.AUTHORITY;
-import static com.istiabudi.cataloguemoviedb.db.DatabaseContract.CONTENT_URI;
+import static com.istiabudi.cataloguemoviedb.db.DatabaseContract.contentUri;
 
 public class FaveProvider extends ContentProvider{
 
     private static final int FAVE = 1;
     private static final int FAVE_ID = 2;
 
-    private static final UriMatcher uriMatcher =
+    private static final UriMatcher sUriMatcher =
             new UriMatcher(UriMatcher.NO_MATCH);
+    private SQLiteDatabase database;
 
     static {
 
-        //content://com.istiabudi.mymoviedb/fave
-        uriMatcher.addURI(
+        //content://com.istiabudi.cataloguemoviedb/fave
+        sUriMatcher.addURI(
                 AUTHORITY,
                 DatabaseContract.TABLE_NAME,
                 FAVE);
 
-        // content://com.istiabudi.mymoviedb/fave/id
-        uriMatcher.addURI(AUTHORITY,
+        // content://com.istiabudi.cataloguemoviedb/fave/id
+        sUriMatcher.addURI(AUTHORITY,
                 DatabaseContract.TABLE_NAME + "/#",
                 FAVE_ID);
 
@@ -51,7 +53,7 @@ public class FaveProvider extends ContentProvider{
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         Cursor cursor;
-        switch (uriMatcher.match(uri)) {
+        switch (sUriMatcher.match(uri)) {
             case FAVE:
                 cursor = this.faveHelper.queryProvider();
                 break;
@@ -78,24 +80,24 @@ public class FaveProvider extends ContentProvider{
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
         long numAdded;
-        switch (uriMatcher.match(uri)) {
+        switch (sUriMatcher.match( uri )) {
             case FAVE:
-                numAdded = this.faveHelper.insertProvider(values);
+                numAdded = this.faveHelper.insertProvider( values );
                 break;
             default:
                 numAdded = 0;
                 break;
         }
-        if(numAdded > 0)
-            this.context.getContentResolver().notifyChange(uri, null);
+        if (numAdded > 0) this.context.getContentResolver().notifyChange( uri, null );
 
-        return Uri.parse(CONTENT_URI + "/" + numAdded);
+        return Uri.parse( contentUri() + "/" + numAdded );
     }
+
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
         int numDeleted;
-        switch (uriMatcher.match(uri)) {
+        switch (sUriMatcher.match(uri)) {
             case FAVE_ID:
                 numDeleted = faveHelper.deleteProvider(uri.getLastPathSegment());
                 break;
@@ -114,7 +116,7 @@ public class FaveProvider extends ContentProvider{
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
 
         int numUpdated;
-        switch (uriMatcher.match(uri)) {
+        switch (sUriMatcher.match(uri)) {
             case FAVE_ID:
                 numUpdated = faveHelper.updateProvider(uri.getLastPathSegment(), values);
                 break;
@@ -127,6 +129,7 @@ public class FaveProvider extends ContentProvider{
             this.context.getContentResolver().notifyChange(uri, null);
 
         return numUpdated;
+//        return 0;
 
     }
 }

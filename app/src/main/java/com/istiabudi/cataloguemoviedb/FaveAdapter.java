@@ -21,7 +21,8 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static android.provider.UserDictionary.Words.CONTENT_URI;
+import static com.istiabudi.cataloguemoviedb.db.DatabaseContract.contentUri;
+
 
 public class FaveAdapter extends RecyclerView.Adapter<FaveAdapter.ViewHolder>{
 
@@ -81,7 +82,7 @@ public class FaveAdapter extends RecyclerView.Adapter<FaveAdapter.ViewHolder>{
             buttonDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Uri uri = Uri.parse(CONTENT_URI + "/" + listMovie.get(getAdapterPosition()).getId());
+                    Uri uri = Uri.parse(contentUri() + "/" + listMovie.get(getAdapterPosition()).getId());
                     context.getContentResolver().delete(uri, null, null);
                     listMovie.remove(getAdapterPosition());
                     notifyItemRemoved(getAdapterPosition());

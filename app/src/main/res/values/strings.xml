@@ -20,4 +20,7 @@
     <string name="detail">Detail</string>
     <string name="delete">delete</string>
     <string name="loading_poster">loading_poster</string>
+    <string name="favorite">favorite</string>
+    <string name="added_to_fave">added to fave</string>
+    <string name="remove_from_fave">remove from fave</string>
 </resources>

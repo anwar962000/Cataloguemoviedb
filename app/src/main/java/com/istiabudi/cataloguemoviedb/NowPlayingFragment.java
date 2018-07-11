@@ -16,6 +16,7 @@ public class NowPlayingFragment extends Fragment implements LoaderManager.Loader
 
     static final String EXTRAS_MOVIE = "EXTRAS_MOVIE";
     Context context;
+//    RecyclerView listView;
     ListView listView;
     MovieAdapter movieAdapter;
     public NowPlayingFragment() {
@@ -40,7 +41,7 @@ public class NowPlayingFragment extends Fragment implements LoaderManager.Loader
         bundle.putString(EXTRAS_MOVIE, null);
 
         getLoaderManager().initLoader(0, bundle, this);
-        listView = (ListView) rootView.findViewById(R.id.listView_nowplay);
+        listView =  rootView.findViewById(R.id.listView_nowplay);
         listView.setAdapter(movieAdapter);
 
         return rootView;

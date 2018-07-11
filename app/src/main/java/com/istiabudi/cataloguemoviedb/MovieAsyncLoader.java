@@ -57,8 +57,6 @@ public class MovieAsyncLoader extends AsyncTaskLoader<ArrayList<MovieItem>> {
 
     private static final String API_KEY = "395f772f2d323e2f968dffc249550219";
 
-
-
     @Override
     public ArrayList<MovieItem> loadInBackground() {
         SyncHttpClient client = new SyncHttpClient();
