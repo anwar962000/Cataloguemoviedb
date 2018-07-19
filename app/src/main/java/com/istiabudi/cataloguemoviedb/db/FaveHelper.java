@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import static android.provider.BaseColumns._ID;
 import static com.istiabudi.cataloguemoviedb.db.DatabaseContract.TABLE_NAME;
 
 public class FaveHelper {
@@ -22,7 +23,6 @@ public class FaveHelper {
     public void open() throws SQLException {
         this.databaseHelper = new DatabaseHelper(this.context);
         this.database = databaseHelper.getWritableDatabase();
-//        return this;
     }
 
     public void close() {
@@ -47,7 +47,7 @@ public class FaveHelper {
                 null,
                 null,
                 null,
-                DatabaseContract.FaveColumns.ID + " DESC"
+                _ID + " DESC"
         );
     }
 
@@ -58,7 +58,7 @@ public class FaveHelper {
     public int updateProvider(String id, ContentValues values) {
         return this.database.update(DATABASE_TABLE,
                 values,
-                DatabaseContract.FaveColumns.TMDBID + " = ?",
+                _ID + " = ?",
                 new String[] {id});
     }
 

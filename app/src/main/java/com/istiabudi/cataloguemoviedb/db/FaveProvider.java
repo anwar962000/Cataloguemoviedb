@@ -129,7 +129,6 @@ public class FaveProvider extends ContentProvider{
             this.context.getContentResolver().notifyChange(uri, null);
 
         return numUpdated;
-//        return 0;
 
     }
 }

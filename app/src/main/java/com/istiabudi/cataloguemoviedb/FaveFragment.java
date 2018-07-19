@@ -23,7 +23,7 @@ public class FaveFragment extends Fragment implements LoaderManager.LoaderCallba
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate( R.layout.fragment_fave, container, false);
-        recyclerViewList = rootView.findViewById(R.id.rv_list);
+        recyclerViewList = rootView.findViewById(R.id.rv_listview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
@@ -47,11 +47,7 @@ public class FaveFragment extends Fragment implements LoaderManager.LoaderCallba
 
     @Override
     public Loader<ArrayList<MovieItem>> onCreateLoader(int id, Bundle bundle) {
-//        String movieList = "";
-//        if (bundle != null){
-//            movieList = bundle.getString(EXTRAS_MOVIE);
-//        }
-//        return null;
+
         return new LoaderDatabase( getContext() );
 
     }

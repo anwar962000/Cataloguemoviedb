@@ -8,29 +8,23 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     private static String DATABASE_NAME = "dbfave";
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 7;
 
     private static final String SQL_CREATE_TABLE_FAVE =
             String.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, " +
                             "%s INTEGER NOT NULL," + // tmdbid
                             "%s TEXT NOT NULL," + // title
-                            "%s TEXT NOT NULL," + // originaltitle
-                            "%s TEXT NOT NULL," + // overview
                             "%s TEXT NOT NULL," + // releasedate
                             "%s TEXT NOT NULL," + // decription
                             "%s TEXT NOT NULL" + // poster
-//                            "%s TEXT NOT NULL" + // thumbnail
                             ")",
                     DatabaseContract.TABLE_NAME,
-                    DatabaseContract.FaveColumns.ID,
+                    DatabaseContract.FaveColumns._ID,
                     DatabaseContract.FaveColumns.TMDBID,
                     DatabaseContract.FaveColumns.TITLE,
-                    DatabaseContract.FaveColumns.ORIGINALTITLE,
-                    DatabaseContract.FaveColumns.OVERVIEW,
                     DatabaseContract.FaveColumns.RELEASEDATE,
                     DatabaseContract.FaveColumns.DESCRIPTION,
                     DatabaseContract.FaveColumns.POSTER
-//                    DatabaseContract.FaveColumns.THUMBNAIL
             );
 
     DatabaseHelper(Context context) {

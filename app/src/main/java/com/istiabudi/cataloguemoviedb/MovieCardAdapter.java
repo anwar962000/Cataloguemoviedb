@@ -58,13 +58,13 @@ public class MovieCardAdapter extends RecyclerView.Adapter<MovieCardAdapter.Card
 
     @Override
     public void onBindViewHolder(CardViewViewHolder holder, final int position) {
-//        Log.d("C", "onBindViewHolder: " + getmData().get(position).getTitle());
+
         holder.textViewTitle.setText(getmData().get(position).getTitle());
-        holder.textViewDesc.setText(getmData().get(position).getDesc());
+        holder.textViewDesc.setText(getmData().get(position).getDesc( ));
 //        holder.textViewDate.setText(getmData().get(position).getDate());
 //
         Glide.with(context)
-                .load(getmData().get(position).getImage())
+                .load(getmData().get(position).getImage(  ))
                 .override(55, 55)
                 .crossFade()
                 .into(holder.imageView);

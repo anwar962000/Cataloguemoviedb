@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.support.v4.content.AsyncTaskLoader;
 import android.util.Log;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 import static com.istiabudi.cataloguemoviedb.db.DatabaseContract.contentUri;
@@ -46,15 +44,16 @@ public class LoaderDatabase extends AsyncTaskLoader<ArrayList<MovieItem>> {
                         null);
         if ( cursor.moveToFirst()) {
             do {
-                MovieItem movie = new MovieItem( (JSONObject) cursor );
+                MovieItem movie = new MovieItem( (cursor));
                 list.add(movie);
                 cursor.moveToNext();
+                Log.d(getClass().getSimpleName(), "loadInBackground: "+list.size());
             }
             while (!cursor.isAfterLast());
         }
 
         cursor.close();
-        Log.d(getClass().getSimpleName(), "loadInBackground: "+list.size());
+
         return list;
 
     }

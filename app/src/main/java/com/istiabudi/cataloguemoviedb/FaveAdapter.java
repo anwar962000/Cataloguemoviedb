@@ -2,8 +2,6 @@ package com.istiabudi.cataloguemoviedb;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,8 +18,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.istiabudi.cataloguemoviedb.db.DatabaseContract.contentUri;
 
 
 public class FaveAdapter extends RecyclerView.Adapter<FaveAdapter.ViewHolder>{
@@ -44,11 +40,12 @@ public class FaveAdapter extends RecyclerView.Adapter<FaveAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull FaveAdapter.ViewHolder holder, final int position) {
+        Log.d("ex", "onBindViewHolder: " + listMovie.get(position).getDesc());
         Glide.with(context)
                 .load(listMovie.get(position)
                         .getImage())
                 .override(640, 480).into(holder.poster);
-        Log.d(getClass().getSimpleName(), "onBindViewHolder: " +listMovie.get(position).getImage());
+
         holder.title.setText(listMovie.get(position).getTitle());
         holder.releaseDate.setText(listMovie.get(position).getDate());
         holder.remarks.setText(listMovie.get(position).getDesc());
@@ -79,23 +76,33 @@ public class FaveAdapter extends RecyclerView.Adapter<FaveAdapter.ViewHolder>{
             releaseDate = itemView.findViewById(R.id.tv_date);
             btnDetail = itemView.findViewById(R.id.btn_detail);
 
-            buttonDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Uri uri = Uri.parse(contentUri() + "/" + listMovie.get(getAdapterPosition()).getId());
-                    context.getContentResolver().delete(uri, null, null);
-                    listMovie.remove(getAdapterPosition());
-                    notifyItemRemoved(getAdapterPosition());
-
-                }
-            });
+//            buttonDelete.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Uri uri = Uri.parse(contentUri() + "/" + listMovie.get(getAdapterPosition()).getId());
+//                    Log.d( "isi Uri",uri.toString() );
+//
+//                    Log.d("error", "onClick: '"
+//                            + listMovie.get(getAdapterPosition()).getId());
+//                    String id = String.valueOf(listMovie.get(getAdapterPosition()).getId());
+//                    context.getContentResolver().delete(uri,id, null);
+//                    listMovie.remove(getAdapterPosition());
+//                    notifyItemRemoved(getAdapterPosition());
+//
+//                }
+//            });
 
             btnDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, DetailActivity.class);
-                    intent.putExtra(EXTRA_MOVIE, (Parcelable) listMovie.get(getAdapterPosition()) );
-                    context.startActivity(intent);
+                    Intent detail = new Intent( context, DetailActivity.class );
+                    detail.putExtra( "adapter", "fave" );
+                    detail.putExtra( "tmdbid", listMovie.get( getAdapterPosition() ).getTmdbid() );
+                    detail.putExtra( "name", listMovie.get( getAdapterPosition() ).getTitle() );
+                    detail.putExtra( "date", listMovie.get( getAdapterPosition() ).getDate() );
+                    detail.putExtra( "desc", listMovie.get( getAdapterPosition() ).getDesc() );
+                    detail.putExtra( "image", listMovie.get( getAdapterPosition() ).getImage() );
+                    context.startActivity( detail );
 
                 }
             });
@@ -112,4 +119,5 @@ public class FaveAdapter extends RecyclerView.Adapter<FaveAdapter.ViewHolder>{
     }
 
 }
+
 

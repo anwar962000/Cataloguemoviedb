@@ -25,7 +25,7 @@ public class MovieAdapter extends BaseAdapter{
     }
 
     public void setData(ArrayList<MovieItem> items){
-        mData = items;
+        mData=items;
         notifyDataSetChanged();
     }
     public void addItem(final MovieItem item) {
@@ -84,6 +84,7 @@ public class MovieAdapter extends BaseAdapter{
             @Override
             public void onClick(View view) {
                 Intent detail = new Intent(context , DetailActivity.class);
+                detail.putExtra( "tmdbid" ,mData.get(position).getTmdbid());
                 detail.putExtra("name" , mData.get(position).getTitle());
                 detail.putExtra("date" , mData.get(position).getDate());
                 detail.putExtra("desc" , mData.get(position).getDesc());

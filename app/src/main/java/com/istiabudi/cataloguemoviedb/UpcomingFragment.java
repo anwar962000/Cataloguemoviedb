@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class UpcomingFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<MovieItem>> {
     static final String EXTRAS_MOVIE = "EXTRAS_MOVIE";
     Context context;
-//    RecyclerView listView;
     ListView listView;
     MovieAdapter movieAdapter;
 
@@ -42,6 +41,7 @@ public class UpcomingFragment extends Fragment implements LoaderManager.LoaderCa
         View rootView = inflater.inflate(R.layout.fragment_upcoming, container, false);
         movieAdapter = new MovieAdapter(getActivity());
         movieAdapter.notifyDataSetChanged();
+
 
         String title = "Iron Man 3";
         Bundle bundle = new Bundle();

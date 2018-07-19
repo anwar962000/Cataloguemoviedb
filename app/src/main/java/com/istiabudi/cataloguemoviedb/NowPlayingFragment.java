@@ -16,7 +16,6 @@ public class NowPlayingFragment extends Fragment implements LoaderManager.Loader
 
     static final String EXTRAS_MOVIE = "EXTRAS_MOVIE";
     Context context;
-//    RecyclerView listView;
     ListView listView;
     MovieAdapter movieAdapter;
     public NowPlayingFragment() {
@@ -26,6 +25,7 @@ public class NowPlayingFragment extends Fragment implements LoaderManager.Loader
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
     }
 
     @Override

@@ -10,15 +10,11 @@ public class DatabaseContract {
 
     public static final class FaveColumns implements BaseColumns {
 
-        public static String ID = "id";
         public static String TMDBID = "tmdbid";
         public static String TITLE = "title";
-        public static String ORIGINALTITLE = "originaltitle";
-        public static String OVERVIEW = "overview";
         public static String RELEASEDATE = "release_date";
         public static String DESCRIPTION = "description";
         public static String POSTER = "poster";
-        public static String THUMBNAIL = "thumbnail";
 
     }
 
