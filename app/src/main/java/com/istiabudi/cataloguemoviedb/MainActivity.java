@@ -1,5 +1,6 @@
 package com.istiabudi.cataloguemoviedb;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.bumptech.glide.Glide;
+import com.istiabudi.cataloguemoviedb.fragment.FaveFragment;
+import com.istiabudi.cataloguemoviedb.fragment.NowPlayingFragment;
+import com.istiabudi.cataloguemoviedb.fragment.SearchFragment;
+import com.istiabudi.cataloguemoviedb.fragment.UpcomingFragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -146,6 +151,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment.setArguments(bundle);
 
         } else if (id == R.id.nav_share) {
+            title = "SETTING";
+            Intent intent= new Intent( this, SettingActivity3.class );
+            startActivity( intent );
 
         } else if (id == R.id.nav_send) {
 

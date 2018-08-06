@@ -18,6 +18,8 @@ public class MovieAdapter extends BaseAdapter{
     private ArrayList<MovieItem> mData = new ArrayList<>();
     private LayoutInflater mInflater;
     private Context context;
+    public final static String EXTRA_MOVIE = "movie";
+    public static String EXTRA_REQUEST_CODE = "request code";
 
     public MovieAdapter(Context context) {
         this.context = context;

@@ -1,4 +1,4 @@
-package com.istiabudi.cataloguemoviedb;
+package com.istiabudi.cataloguemoviedb.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,11 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.istiabudi.cataloguemoviedb.FaveAdapter;
+import com.istiabudi.cataloguemoviedb.LoaderDatabase;
+import com.istiabudi.cataloguemoviedb.MovieItem;
+import com.istiabudi.cataloguemoviedb.R;
+
 import java.util.ArrayList;
 
 
 public class FaveFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<MovieItem>>{
-    static final String EXTRAS_MOVIE = "EXTRA MOVIE";
+    public static final String EXTRAS_MOVIE = "EXTRA MOVIE";
     static FaveAdapter adapter;
     RecyclerView recyclerViewList;
 

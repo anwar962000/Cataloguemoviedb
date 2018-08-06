@@ -1,4 +1,4 @@
-package com.istiabudi.cataloguemoviedb;
+package com.istiabudi.cataloguemoviedb.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,6 +16,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.istiabudi.cataloguemoviedb.MovieAsyncLoader;
+import com.istiabudi.cataloguemoviedb.MovieCardAdapter;
+import com.istiabudi.cataloguemoviedb.MovieItem;
+import com.istiabudi.cataloguemoviedb.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +35,7 @@ public class SearchFragment extends Fragment implements LoaderCallbacks<ArrayLis
     Context context;
     Button buttonSearch;
     private List<MovieItem> movieList;
-    static final String EXTRAS_MOVIE = "EXTRAS_MOVIE";
+    public static final String EXTRAS_MOVIE = "EXTRAS_MOVIE";
 
 
     @Override
@@ -55,13 +60,6 @@ public class SearchFragment extends Fragment implements LoaderCallbacks<ArrayLis
         editTitle.setHint( editHint );
         buttonSearch.setText( buttonText );
         buttonSearch.setOnClickListener( myListener );
-
-
-//        String title = "Iron Man 3";
-//        Bundle bundle = new Bundle();
-//        bundle.putString( EXTRAS_MOVIE, title );
-
-//        getLoaderManager().initLoader( 0, bundle, this );
 
         return rootView;
     }

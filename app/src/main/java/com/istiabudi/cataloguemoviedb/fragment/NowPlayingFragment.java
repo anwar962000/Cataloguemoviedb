@@ -1,4 +1,4 @@
-package com.istiabudi.cataloguemoviedb;
+package com.istiabudi.cataloguemoviedb.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,26 +10,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.istiabudi.cataloguemoviedb.MovieAdapter;
+import com.istiabudi.cataloguemoviedb.MovieAsyncLoader;
+import com.istiabudi.cataloguemoviedb.MovieItem;
+import com.istiabudi.cataloguemoviedb.R;
+
 import java.util.ArrayList;
 
-public class UpcomingFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<MovieItem>> {
-    static final String EXTRAS_MOVIE = "EXTRAS_MOVIE";
+public class NowPlayingFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<MovieItem>> {
+
+    public static final String EXTRAS_MOVIE = "EXTRAS_MOVIE";
     Context context;
     ListView listView;
     MovieAdapter movieAdapter;
-
-    public UpcomingFragment() {
+    public NowPlayingFragment() {
 
     }
-
-    public static UpcomingFragment newInstance(String param1, String param2) {
-        UpcomingFragment fragment = new UpcomingFragment();
-        Bundle args = new Bundle();
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
     }
@@ -38,20 +37,20 @@ public class UpcomingFragment extends Fragment implements LoaderManager.LoaderCa
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_upcoming, container, false);
+        View rootView = inflater.inflate( R.layout.fragment_now_playing, container, false);
         movieAdapter = new MovieAdapter(getActivity());
         movieAdapter.notifyDataSetChanged();
-
 
         String title = "Iron Man 3";
         Bundle bundle = new Bundle();
         bundle.putString(EXTRAS_MOVIE, null);
 
         getLoaderManager().initLoader(0, bundle, this);
-        listView= rootView.findViewById(R.id.listView_upcomming);
+        listView =  rootView.findViewById(R.id.listView_nowplay);
         listView.setAdapter(movieAdapter);
 
         return rootView;
+
     }
 
     @Override
@@ -61,7 +60,7 @@ public class UpcomingFragment extends Fragment implements LoaderManager.LoaderCa
             movieList = bundle.getString(EXTRAS_MOVIE);
         }
 //        return null;
-        return new MovieAsyncLoader(getActivity(), movieList,"upcoming");
+        return new MovieAsyncLoader(getActivity(), movieList,"nowcoming");
 
     }
 
@@ -75,4 +74,3 @@ public class UpcomingFragment extends Fragment implements LoaderManager.LoaderCa
         movieAdapter.setData(null);
     }
 }
-

@@ -53,7 +53,7 @@ public class MovieAsyncTaskLoader extends AsyncTaskLoader<ArrayList<MovieItem>> 
         }
     }
 
-    private static final String API_KEY = "395f772f2d323e2f968dffc249550219";
+//    private static final String API_KEY = "395f772f2d323e2f968dffc249550219";
 
 
     @Override
@@ -63,11 +63,11 @@ public class MovieAsyncTaskLoader extends AsyncTaskLoader<ArrayList<MovieItem>> 
         final ArrayList<MovieItem> movieItemses = new ArrayList<>();
         String url = null;
         if(this.purpose == "search"){
-            url = "https://api.themoviedb.org/3/search/movie?api_key="+ API_KEY + "&language=en-US&query=" + mMovieList;
+            url = "https://api.themoviedb.org/3/search/movie?api_key="+ BuildConfig.API_KEY + "&language=en-US&query=" + mMovieList;
         }else if (this.purpose == "upcoming"){
-            url = "https://api.themoviedb.org/3/movie/upcoming?api_key="+ API_KEY + "&language=en-US";
+            url = "https://api.themoviedb.org/3/movie/upcoming?api_key="+ BuildConfig.API_KEY + "&language=en-US";
         }else {
-            url = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ API_KEY +"&language=en-US";
+            url = "https://api.themoviedb.org/3/movie/now_playing?api_key="+ BuildConfig.API_KEY +"&language=en-US";
         }
         client.get(url, new AsyncHttpResponseHandler() {
             @Override

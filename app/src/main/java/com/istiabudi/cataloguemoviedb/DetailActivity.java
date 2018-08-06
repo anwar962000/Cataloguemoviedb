@@ -26,6 +26,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     public boolean faved = false;
     private FaveHelper faveHelper;
     private MovieItem movie;
+    public static String MOVIE_ITEM = "movie_item";
 
 
     @Override
@@ -85,7 +86,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
             contentValues.put( DatabaseContract.FaveColumns.TMDBID, movie.tmdbid);
             contentValues.put( DatabaseContract.FaveColumns.TITLE, movie.title );
-            contentValues.put( DatabaseContract.FaveColumns.RELEASEDATE, movie.releaseDate);
+            contentValues.put( DatabaseContract.FaveColumns.RELEASEDATE, movie.release_date );
             contentValues.put( DatabaseContract.FaveColumns.DESCRIPTION, movie.description );
             contentValues.put( DatabaseContract.FaveColumns.POSTER, movie.poster);
             Log.d( "contentValues", "onClick: " + contentValues );

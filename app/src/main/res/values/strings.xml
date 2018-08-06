@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">CatalogueMovieDb</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -23,4 +23,45 @@
     <string name="favorite">favorite</string>
     <string name="added_to_fave">added to fave</string>
     <string name="remove_from_fave">remove from fave</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="no_data">no data</string>
+    <string name="favorite_movies">favorite movies</string>
+    <string name="empty_text">empty text</string>
+    <string name="notify_reminder_title">notify reminder title</string>
+    <string name="notify_reminder_message">notify reminder message</string>
+    <string name="enable_reminder">enable reminder</string>
+    <string name="enable_notification">enable notification</string>
+    <string name="cancel_reminder">cancel reminder</string>
+    <string name="cancel_notification">cancel notification</string>
+    <string name="release_notification_title">release notification title</string>
+    <string name="favorite_widget">Favorite Widget</string>
+
+    <string name="text_show_notif">Testing Notif With Replay</string>
+    <string name="notif_action_reply">Reply Notif</string>
+    <string name="notif_title">New Notification</string>
+    <string name="notif_content">Ada notif baru</string>
+    <string name="notif_title_sent">Reply Sent</string>
+    <string name="notif_content_sent">Message has been sent</string>
+    <string name="hint_reply">Masukkan reply</string>
+
+    <string name="hello_everybody">Hi, We have new for everybod...</string>
+    <string name="alarm_set_for_type_at">Repeat alarm is set for type: %s at %02d:%02d</string>
+    <string name="alarm_cancelled_for_type">Repeat alarm cancelled for type: %s</string>
+
+
+    <string name="bahasa">bahasa</string>
+    <string name="daily_reminder">Daily Reminder</string>
+    <string name="release_reminder">release Reminder</string>
+    <string name="reminderSave">Reminder Save</string>
+    <string name="reminderCancel">Reminder Cancel</string>
+    <string name="reminderCancelDaily">Reminder Cancel Daily</string>
+    <string name="reminderSaveDaily">Reminder Save Daily</string>
+    <string name="error_load_failed">Error Load Failed</string>
+    <string name="err_load_failed">error load failed</string>
+    <string name="setting">setting</string>
+    <string name="title_notification">Title Notification</string>
+    <string name="enable_daily_reminder">Enable Daily Reminder</string>
+    <string name="enable_release_today_notification">Enable Release Today Notification</string>
+    <string name="cancel">Cancel</string>
 </resources>

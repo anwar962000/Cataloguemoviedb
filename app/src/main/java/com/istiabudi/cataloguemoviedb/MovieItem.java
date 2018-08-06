@@ -16,7 +16,7 @@ public class MovieItem implements Parcelable {
     public String title;
     public int tmdbid;
     public String poster;
-    public String releaseDate;
+    public String release_date;
     public String description;
 //    public String image;
 
@@ -31,7 +31,7 @@ public class MovieItem implements Parcelable {
             this.tmdbid = id;
             this.title = name;
             this.description = description;
-            this.releaseDate = releaseDate;
+            this.release_date = releaseDate;
             this.poster = image;
 
         }catch (Exception e){
@@ -44,21 +44,21 @@ public class MovieItem implements Parcelable {
         this.tmdbid = DatabaseContract.getColumnInt(cursor, DatabaseContract.FaveColumns.TMDBID);
         this.title = DatabaseContract.getColumnString(cursor, DatabaseContract.FaveColumns.TITLE);
         this.description = DatabaseContract.getColumnString( cursor, DatabaseContract.FaveColumns.DESCRIPTION );
-        this.releaseDate = DatabaseContract.getColumnString(cursor, DatabaseContract.FaveColumns.RELEASEDATE);
+        this.release_date = DatabaseContract.getColumnString(cursor, DatabaseContract.FaveColumns.RELEASEDATE);
         this.poster = DatabaseContract.getColumnString(cursor, DatabaseContract.FaveColumns.POSTER);
     }
 
     public MovieItem(int tmdbid, String title, String description,
-                     String releaseDate, String poster) {
+                     String release_date, String poster) {
         this.tmdbid = tmdbid;
         this.title = title;
         this.description = description;
-        this.releaseDate = releaseDate;
+        this.release_date = release_date;
         this.poster = poster;
     }
     public MovieItem(int id, int tmdbid, String title, String description,
-                     String releaseDate, String poster) {
-        this(tmdbid, title, description, releaseDate, poster);
+                     String release_date, String poster) {
+        this(tmdbid, title, description, release_date, poster);
         this._id = id;
 
     }
@@ -85,10 +85,10 @@ public class MovieItem implements Parcelable {
     }
 
     public String getDate() {
-        return releaseDate;
+        return release_date;
     }
     public void setDate(String dateRelease) {
-        this.releaseDate = dateRelease;
+        this.release_date = dateRelease;
     }
 
     public String getDesc() {
@@ -116,7 +116,7 @@ public class MovieItem implements Parcelable {
         dest.writeInt( this.tmdbid );
         dest.writeString( this.title );
         dest.writeString( this.description );
-        dest.writeString( this.releaseDate );
+        dest.writeString( this.release_date );
         dest.writeString( this.poster );
     }
 
@@ -125,7 +125,7 @@ public class MovieItem implements Parcelable {
         this.tmdbid = in.readInt();
         this.title = in.readString();
         this.description = in.readString();
-        this.releaseDate = in.readString();
+        this.release_date = in.readString();
         this.poster = in.readString();
     }
 

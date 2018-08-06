@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Katalog Film Database</string>
+    <string name="navigation_drawer_open">Buka Navigasi</string>
+    <string name="navigation_drawer_close">Tutup Navigation</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Konfigurasi</string>
+    <string name="upcoming">AKAN DATANG</string>
+    <string name="now_playing">PUTAS SAAT INI</string>
+    <string name="hello_blank_fragment">hello_blank_fragment</string>
+    <string name="movie_search">Cari FIlm</string>
+    <string name="put_search_keyword_here">put_search_keyword_here</string>
+    <string name="search">Cari</string>
+    <string name="searching">Sedang Cari</string>
+    <string name="empty">Kosong</string>
+    <string name="remarks">Catatan</string>
+    <string name="american_ninja">american_ninja</string>
+    <string name="movie_name">Nama Film</string>
+    <string name="detail">Detil</string>
+    <string name="delete">Hapus</string>
+    <string name="loading_poster">loading_poster</string>
+    <string name="favorite">Favorit</string>
+    <string name="added_to_fave">Tambah ke Favorit</string>
+    <string name="remove_from_fave">Hapus dari Favorit</string>
+    <string name="appwidget_text">Contoh</string>
+    <string name="add_widget">Tambah widget</string>
+    <string name="no_data">Tidak ada Data</string>
+    <string name="favorite_movies">Film Favorite</string>
+    <string name="empty_text">Text Kosong</string>
+    <string name="notify_reminder_title">notify reminder title</string>
+    <string name="notify_reminder_message">notify reminder message</string>
+    <string name="enable_reminder">enable reminder</string>
+    <string name="enable_notification">enable notification</string>
+    <string name="cancel_reminder">cancel reminder</string>
+    <string name="cancel_notification">cancel notification</string>
+    <string name="release_notification_title">release notification title</string>
+    <string name="favorite_widget">Favorite Widget</string>
+
+    <string name="text_show_notif">Testing Notif dengan Replay</string>
+    <string name="notif_action_reply">Reply Notif</string>
+    <string name="notif_title">Notification Baru</string>
+    <string name="notif_content">Ada notif baru</string>
+    <string name="notif_title_sent">Reply Sent</string>
+    <string name="notif_content_sent">Message has been sent</string>
+    <string name="hint_reply">Masukkan reply</string>
+
+    <string name="hello_everybody">Hi, We have new for everybod...</string>
+    <string name="alarm_set_for_type_at">Repeat alarm is set for type: %s at %02d:%02d</string>
+    <string name="alarm_cancelled_for_type">Repeat alarm cancelled for type: %s</string>
+
+
+    <string name="bahasa">bahasa</string>
+    <string name="daily_reminder">Pengingat Harian</string>
+    <string name="release_reminder">Pengingat Hapus</string>
+    <string name="reminderSave">Reminder Simpan</string>
+    <string name="reminderCancel">Reminder Hapus</string>
+    <string name="reminderCancelDaily">Reminder Hapus Harian</string>
+    <string name="reminderSaveDaily">Reminder simpan Harina</string>
+    <string name="error_load_failed">Error Load Failed</string>
+    <string name="err_load_failed">error load failed</string>
+    <string name="setting">Konfigurasi</string>
+    <string name="title_notification">Judul Notification</string>
+    <string name="enable_daily_reminder">Enable Harian Reminder</string>
+    <string name="enable_release_today_notification">Enable Hapus Hari ini Notification</string>
+    <string name="cancel">Batal</string>
+</resources>
